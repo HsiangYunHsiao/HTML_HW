@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW-主導覽與內容區塊</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dosis&family=Mukta:wght@300&display=swap");
+      /* font-family: 'Mukta', sans-serif; 
+            font-family: 'Dosis';
+        */
+      /* 電腦與平板上應用的樣式 */
+      * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+      }
+      body {
+        background-color: rgb(237, 237, 237);
+        margin: 0px;
+        font-size: 14px;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%;
+        background-color: #fff8dc;
+      }
+      .header .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem;
+        min-width: 20%;
+      }
+      .header .logo a {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #deb887;
+        font-family: "Mukta", sans-serif;
+      }
+      .navbar {
+        display: flex;
+        align-content: stretch;
+      }
+      .navbar ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #deb887;
+      }
+      .navbar ul li {
+        padding: 0.2rem 0.6rem;
+        text-align: center;
+      }
+      .navbar ul li:hover {
+        background-color: #e9d0af;
+        cursor: pointer;
+      }
+      .navbar ul li:not(.navbar ul li:last-child) {
+        border-right: 0.5px solid white;
+        border-bottom: none;
+      }
+      .navbar ul li a {
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+        font-family: "Mukta", sans-serif;
+      }
+      .menu {
+        display: none;
+      }
+      section {
+        width: 100%;
+      }
+      .container {
+        width: 80%;
+        max-width: 90%;
+        /* background-color: red; */
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 60px auto;
+        padding: 20px 0;
+      }
+      .container div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1.5% 0;
+        background-color: #deb887;
+      }
+      .container div p {
+        padding: 4%;
+        font-size: 0.6rem;
+        font-family: "Mukta", sans-serif;
+      }
+      #work .container div {
+        width: 46%;
+        background-color: #deb887;
+        height: 300px;
+      }
+      section:nth-child(2n) {
+        background-color: #e0d6ab;
+      }
+      section:nth-child(2n + 1) {
+        background-color: #fff8dc;
+      }
+      #work img {
+        height: 60%;
+        width: auto;
+      }
+      #portfolio .container div {
+        width: 30%;
+        background-color: #deb887;
+        height: 200px;
+      }
+      #contact .container div {
+        width: 30%;
+        background-color: #deb887;
+        height: 100px;
+      }
+      footer {
+        width: 100%;
+        background-color: black;
+        padding: 10px 0;
+      }
+      footer p {
+        color: white;
+        font-size: 1.6rem;
+        text-align: center;
+        font-family: "Mukta", sans-serif;
+      }
+      /* 手機 */
+      @media screen and (max-width: 500px) {
+        .header {
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-around;
+          gap: 50%;
+        }
+        .header .logo {
+          justify-content: flex-start;
+        }
+        .navbar {
+          width: 100%;
+          display: block;
+        }
+        .navbar ul {
+          flex-direction: column;
+        }
+        .navbar ul li {
+          padding: 0.6rem 0;
+          width: 100%;
+        }
+        .navbar ul li:not(.navbar ul li:last-child) {
+          border-bottom: 0.5px solid white;
+          border-right: none;
+        }
+        .menu {
+          display: inline-block;
+          position: relative;
+          width: 3em;
+          height: 3em;
+          /* margin: auto; */
+          /* margin-top: 5em; */
+          /* margin-bottom: 5em; */
+          /* border: .1em solid #DEB887; */
+          background-color: white;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        .menu:after {
+          content: "";
+          position: absolute;
+          top: 1em; /*menu 為上下 3em，需要上方空白1em 中間線條區域1em 下方空白1em*/
+          left: 1em;
+          width: 1em;
+          height: 0.2em; /*雖然沒background-color，但在裡面的最後一個空白當作撐起的腳色*/
+          border-top: 0.6em double #deb887; /*上方兩個線條，寬度各為0.6/3(框線中間的空白一樣寬)*/
+          /*中間夾的就是本體，寬高就是上面設定的width:1em和height:0.2em，沒有背景色透明的*/
+          border-bottom: 0.25em solid #deb887; /*最下方線條*/
+        }
+        .menu:hover {
+          background-color: #faf4eb;
+          cursor: pointer;
+        }
+
+        #work .container div {
+          width: 100%;
+          max-width: 100%;
+          background-color: #deb887;
+          height: 300px;
+        }
+        #portfolio .container div {
+          width: 100%;
+          height: 100px;
+        }
+        #contact .container div {
+          width: 42%;
+          background-color: #deb887;
+          height: 50px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="logo"><a href="#">My Web</a></div>
+      <div class="menu"></div>
+      <nav class="navbar">
+        <ul id="navlist">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Work</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section id="work">
+      <div class="container">
+        <div class="workimg"><img src="persona1.png" /></div>
+        <div class="workdec">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
+            sunt dignissimos, explicabo quae molestias nobis aspernatur,
+            deleniti unde, pariatur maxime corporis rem illum corrupti
+            assumenda? Quod, enim nihil quisquam nemo, officia aperiam
+            perspiciatis corporis vitae iste amet maxime harum neque quam
+            deleniti. Incidunt iure dolor quaerat rerum quibusdam alias velit.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="portfolio">
+      <div class="container">
+        <div class="p1"><p>text</p></div>
+        <div class="p2"><p>text</p></div>
+        <div class="p3"><p>text</p></div>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="container">
+        <div class="p1"><p>text</p></div>
+        <div class="p2"><p>text</p></div>
+        <div class="p3"><p>text</p></div>
+        <div class="p1"><p>text</p></div>
+        <div class="p2"><p>text</p></div>
+        <div class="p3"><p>text</p></div>
+      </div>
+    </section>
+    <footer><p>This is footer</p></footer>
+  </body>
+</html>
